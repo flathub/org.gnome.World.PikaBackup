@@ -14,7 +14,6 @@ finish-args:
   # flatpak puts a tmpfs here to hide other apps
   - --filesystem=~/.var/app/
   # sftp mounts etc.
-  - --filesystem=xdg-run/gvfs
   - --share=network
   - --socket=wayland
   # X11
@@ -24,8 +23,11 @@ finish-args:
   - --socket=ssh-auth
   # secrete service (keyring)
   - --talk-name=org.freedesktop.secrets
-  # gio::Device etc
+  # GVfs (gio::Device etc)
+  - --talk-name=org.gtk.vfs
   - --talk-name=org.gtk.vfs.*
+  - --filesystem=xdg-run/gvfs
+  - --filesystem=xdg-run/gvfsd
   # fusermount
   - --device=all
   - --talk-name=org.freedesktop.Flatpak.*
@@ -92,8 +94,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        tag: v0.2.2
-        commit: 3335333b974b573765e5ed170bd9a4248a2732e2
+        tag: v0.2.3
+        commit: 0284db7fa31ee15d1e738af6fae53d05b8c96de1
       - type: file
         path: cargo-config.toml
         dest: .cargo

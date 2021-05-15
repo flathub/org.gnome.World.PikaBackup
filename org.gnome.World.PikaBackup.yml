@@ -97,11 +97,14 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        tag: v0.3.0-beta.3
-        commit: 10d7053bfb4ddeca1cd9ff985b1e470715da1e67
+        tag: v0.3.0
+        commit: 02cb5d753f861951c98e141f6db90de367f4f9f8
         x-checker-data:
           type: git
-          tag-pattern: ^v([\d]+.*)
+          # stable versions
+          tag-pattern: ^v([\d.]+)$
+          # beta versions
+          # tag-pattern: ^v([\d]+.*)
 
       - type: file
         path: cargo-config.toml

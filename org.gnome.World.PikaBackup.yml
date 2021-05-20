@@ -35,6 +35,8 @@ finish-args:
   # open folder in filebrowser, work around buggy OpenURI portal
   # https://gitlab.gnome.org/World/pika-backup/-/issues/19
   - --talk-name=org.freedesktop.FileManager1
+  # see https://github.com/flatpak/flatpak/issues/4280
+  - --unset-env=LD_PRELOAD
 modules:
 
   - name: borg
@@ -97,8 +99,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        tag: v0.3.0
-        commit: 02cb5d753f861951c98e141f6db90de367f4f9f8
+        tag: v0.3.1
+        commit: 8c80a7e1f58afa18c2bd712f2bbd87bb99085aad
         x-checker-data:
           type: git
           # stable versions

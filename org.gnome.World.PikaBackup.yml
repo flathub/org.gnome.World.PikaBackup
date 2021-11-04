@@ -53,8 +53,8 @@ modules:
           name: setuptools_scm
           versions: {<: '3.3'}
       - type: file
-        url: https://files.pythonhosted.org/packages/11/c6/9e16df5a5526f7dd2ad17284928e36fc341305fe74c7ab06bb5960a5da94/setuptools-58.0.2.tar.gz
-        sha256: 19e48d0270a86c996bf09e5282584d3c0adf407f37f0aa6e3c762a349ff41811
+        url: https://files.pythonhosted.org/packages/1e/00/05f51ceab8d3b9be4295000d8be4c830c53e5477755888994e9825606cd9/setuptools-58.5.3.tar.gz
+        sha256: dae6b934a965c8a59d6d230d3867ec408bb95e73bd538ff77e71fedf1eaca729
         x-checker-data:
           type: pypi
           name: setuptools
@@ -65,14 +65,14 @@ modules:
           type: pypi
           name: wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz
-        sha256: c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1
+        url: https://files.pythonhosted.org/packages/bf/6f/509e501ff67a335186c8adcdc3ee62195919731b22796b0690658a76bb6f/pyparsing-3.0.4.tar.gz
+        sha256: e0df773d7fa2240322daae7805626dfc5f2d5effb34e1a7be2702c99cfb9f6b1
         x-checker-data:
           type: pypi
           name: pyparsing
       - type: file
-        url: https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz
-        sha256: 7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7
+        url: https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz
+        sha256: 096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966
         x-checker-data:
           type: pypi
           name: packaging

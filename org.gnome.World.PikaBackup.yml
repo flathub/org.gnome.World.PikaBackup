@@ -53,26 +53,26 @@ modules:
           name: setuptools_scm
           versions: {<: '3.3'}
       - type: file
-        url: https://files.pythonhosted.org/packages/1e/00/05f51ceab8d3b9be4295000d8be4c830c53e5477755888994e9825606cd9/setuptools-58.5.3.tar.gz
-        sha256: dae6b934a965c8a59d6d230d3867ec408bb95e73bd538ff77e71fedf1eaca729
+        url: https://files.pythonhosted.org/packages/8f/89/9fec81ec84737c925a1ee992af2c6c7153aec4051c26afeadd6b822354d2/setuptools-60.6.0.tar.gz
+        sha256: eb83b1012ae6bf436901c2a2cee35d45b7260f31fd4b65fd1e50a9f99c11d7f8
         x-checker-data:
           type: pypi
           name: setuptools
       - type: file
-        url: https://files.pythonhosted.org/packages/4e/be/8139f127b4db2f79c8b117c80af56a3078cc4824b5b94250c7f81a70e03b/wheel-0.37.0.tar.gz
-        sha256: e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad
+        url: https://files.pythonhosted.org/packages/c0/6c/9f840c2e55b67b90745af06a540964b73589256cb10cc10057c87ac78fc2/wheel-0.37.1.tar.gz
+        sha256: e9a504e793efbca1b8e0e9cb979a249cf4a0a7b5b8c9e8b65a5e39d49529c1c4
         x-checker-data:
           type: pypi
           name: wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/bf/6f/509e501ff67a335186c8adcdc3ee62195919731b22796b0690658a76bb6f/pyparsing-3.0.4.tar.gz
-        sha256: e0df773d7fa2240322daae7805626dfc5f2d5effb34e1a7be2702c99cfb9f6b1
+        url: https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz
+        sha256: 18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea
         x-checker-data:
           type: pypi
           name: pyparsing
       - type: file
-        url: https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz
-        sha256: 096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966
+        url: https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz
+        sha256: dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb
         x-checker-data:
           type: pypi
           name: packaging

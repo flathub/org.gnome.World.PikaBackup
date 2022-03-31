@@ -53,8 +53,8 @@ modules:
           name: setuptools_scm
           versions: {<: '3.3'}
       - type: file
-        url: https://files.pythonhosted.org/packages/a2/fc/f988372c4cdaaf6151ec4270be4e8ca45f0603256d979f81774fca73ad10/setuptools-61.2.0.tar.gz
-        sha256: c3d4e2ab578fbf83775755cd76dae73627915a22832cf4ea5de895978767833b
+        url: https://files.pythonhosted.org/packages/0e/29/8fdaa8081e885e01923f518095ae0f52953844ade373f7105c441e09bc7b/setuptools-61.3.0.tar.gz
+        sha256: 425ec0e0014c5bcc1104dd1099de6c8f0584854fc9a4f512575f5ed5ee399fb9
         x-checker-data:
           type: pypi
           name: setuptools

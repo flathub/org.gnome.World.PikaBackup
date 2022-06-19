@@ -51,8 +51,8 @@ modules:
       - -Dudevrulesdir=/tmp/
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.10.5/fuse-3.10.5.tar.xz
-        sha256: b2e283485d47404ac896dd0bb7f7ba81e1470838e677e45f659804c3a3b69666
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.11.0/fuse-3.11.0.tar.xz
+        sha256: 8982c4c521daf3974dda8a5d55d575c988da13a571970f00aea149eb54fdf14c
         x-checker-data:
           type: anitya
           project-id: 861
@@ -87,8 +87,8 @@ modules:
           versions: {'>=': 1.5.5}
       # pkgconfig dependency
       - type: file
-        url: https://files.pythonhosted.org/packages/51/be/c4dce945cf7de2dc38d94cf724525f2a97d83b18403eeeb87eecb715dada/poetry-core-1.0.8.tar.gz
-        sha256: 951fc7c1f8d710a94cb49019ee3742125039fc659675912ea614ac2aa405b118
+        url: https://files.pythonhosted.org/packages/05/0a/0a82656f0aa1b926dca3726766af9cf78922fb15cdd0dd76637363197874/poetry-core-1.1.0b2.tar.gz
+        sha256: 48ef71ff8a4c2f0b4eaf9c138c12feb96dbf32e65baac8ca673769d05edf142f
         x-checker-data:
           type: pypi
           name: poetry-core
@@ -101,8 +101,8 @@ modules:
           name: setuptools_scm
           versions: {<: '3.3'}
       - type: file
-        url: https://files.pythonhosted.org/packages/a2/13/229d17002cbab8c8f07b46f8a9adc6bfdd127733a7457f10da06756e1cc3/setuptools-62.0.0.tar.gz
-        sha256: 7999cbd87f1b6e1f33bf47efa368b224bed5e27b5ef2c4d46580186cbcb1a86a
+        url: https://files.pythonhosted.org/packages/dc/73/88920663229023b724a854d1ab7e3e50a1a28b63eeec399a604ba30f9242/setuptools-62.6.0.tar.gz
+        sha256: 990a4f7861b31532871ab72331e755b5f14efbe52d336ea7f6118144dd478741
         x-checker-data:
           type: pypi
           name: setuptools
@@ -125,8 +125,8 @@ modules:
           type: pypi
           name: packaging
       - type: file
-        url: https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz
-        sha256: 18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea
+        url: https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz
+        sha256: 2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb
         x-checker-data:
           type: pypi
           name: pyparsing
@@ -138,8 +138,8 @@ modules:
           name: msgpack
           versions: {==: 1.0.3}
       - type: file
-        url: https://files.pythonhosted.org/packages/0f/e9/0b07aaff39e22eee9a983a48507bff46cf0d634e8a24e635e336cd7b3bce/borgbackup-1.2.0.tar.gz
-        sha256: e39a5547902ef456101aa4c779fa66b345bda70d16788e8bd18e458f93af7f67
+        url: https://files.pythonhosted.org/packages/c6/61/4c55eea2b6f077ca21b7672db9208044330c365dfb3fd09c986d0a439eb4/borgbackup-1.3.0a1.tar.gz
+        sha256: 0c088e37fcca4e003b85e8fdc2bc9831a4e84b2e5886f56511d3ba65aba999f4
         x-checker-data:
           type: pypi
           name: borgbackup
@@ -153,8 +153,8 @@ modules:
           name: pyfuse3
           versions: {<: '4.0'}
       - type: file
-        url: https://files.pythonhosted.org/packages/0a/0f/e9c02a866e32d85fdead0f1c9425b31ba57b69dd08714770232089cc7839/trio-0.20.0.tar.gz
-        sha256: 670a52d3115d0e879e1ac838a4eb999af32f858163e3a704fe4839de2a676070
+        url: https://files.pythonhosted.org/packages/0b/81/47c8b8fc5303bed06d284a49a114e10032d2cbfa1ac51bef15949abf1b54/trio-0.21.0.tar.gz
+        sha256: 523f39b7b69eef73501cebfe1aafd400a9aad5b03543a0eded52952488ff1c13
         x-checker-data:
           type: pypi
           name: trio
@@ -186,8 +186,8 @@ modules:
           name: sniffio
           versions: {<: '2'}
       - type: file
-        url: https://files.pythonhosted.org/packages/88/b5/9ccedd89d641dcfa5771f636a8a2e99f9d98b09f511f4f870d382ef2b007/outcome-1.1.0.tar.gz
-        sha256: e862f01d4e626e63e8f92c38d1f8d5546d3f9cce989263c521b2e7990d186967
+        url: https://files.pythonhosted.org/packages/dd/91/741e1626e89fdc3664169e16300c59eefa4b23540cc6d6c70450f885098f/outcome-1.2.0.tar.gz
+        sha256: 6f82bd3de45da303cf1f771ecafa1633750a358436a8bb60e06a1ceb745d2672
         x-checker-data:
           type: pypi
           name: outcome
@@ -215,10 +215,11 @@ modules:
           # beta
           #tag-pattern: ^v([\d]+.*)
       # generated via flatpak-builder-tools
+        tag: v0.4.0
       - generated-sources.json
       # copy generated cargo config
       - type: shell
         commands:
-         - mkdir .cargo
-         - cp cargo/config .cargo/
+          - mkdir .cargo
+          - cp cargo/config .cargo/
 

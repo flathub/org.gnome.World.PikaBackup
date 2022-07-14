@@ -81,7 +81,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 31dd8372582edf0922c93d9e6b4ddfd4655b27f9
+        commit: a301567dc62fe9f4577233d55006ffda0bd9cd10
         x-checker-data:
           type: git
           # stable
@@ -89,6 +89,7 @@ modules:
           # beta
           #tag-pattern: ^v([\d]+.*)
       # generated via flatpak-builder-tools
+        tag: v0.4.2
       - generated-sources.json
       # copy generated cargo config
       - type: shell

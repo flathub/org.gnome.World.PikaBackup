@@ -1,7 +1,7 @@
 app-id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43beta'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -41,7 +41,12 @@ finish-args:
   # see https://github.com/flatpak/flatpak/issues/4280
   - --unset-env=LD_PRELOAD
 modules:
-  - name: fusermout
+  - name: paths
+    buildsystem: simple
+    build-commands:
+     - mkdir /app/bin
+
+  - name: libfuse
     buildsystem: meson
     config-opts:
       - -Dexamples=false
@@ -49,10 +54,12 @@ modules:
       - -Dtests=false
       # don't install rules on the host
       - -Dudevrulesdir=/tmp/
+      # don't install init script
+      - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.11.0/fuse-3.11.0.tar.xz
-        sha256: 8982c4c521daf3974dda8a5d55d575c988da13a571970f00aea149eb54fdf14c
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.12.0/fuse-3.12.0.tar.xz
+        sha256: 33b8a92d6f7a88e6a889f0009206933482f48f3eb85d88cf09ef551313ac7373
         x-checker-data:
           type: anitya
           project-id: 861
@@ -81,7 +88,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: a301567dc62fe9f4577233d55006ffda0bd9cd10
+        commit: 27a33d0c51731b43509743eec8c27d50447bddbe
         x-checker-data:
           type: git
           # stable

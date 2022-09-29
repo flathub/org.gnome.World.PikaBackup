@@ -1,32 +1,33 @@
 app-id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '43beta'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
-
 finish-args:
-  - --device=dri
+  # Read files for to backup
+  # Host has to be writable because configs become unwriteable otherwise
   - --filesystem=host
+  - --filesystem=/var:ro
   # flatpak puts a tmpfs here to hide other apps
   # it contains configs of all flatpak apps
-  - --filesystem=~/.var/app/
+  - --filesystem=~/.var/app
   # flatpak puts a tmpfs here to hide all apps
   # it contains the apps and overrides for app priviledges
   - --filesystem=xdg-data/flatpak:ro
-  # sftp mounts etc.
-  - --share=network
+  # Wayland
   - --socket=wayland
   # X11
   - --share=ipc
   - --socket=fallback-x11
+  # SSH backups etc.
+  - --share=network
   # SSH-keys etc
   - --socket=ssh-auth
   # GVfs (gio::Device etc)
-  - --talk-name=org.gtk.vfs
   - --talk-name=org.gtk.vfs.*
   - --filesystem=xdg-run/gvfs
   - --filesystem=xdg-run/gvfsd
@@ -41,11 +42,6 @@ finish-args:
   # see https://github.com/flatpak/flatpak/issues/4280
   - --unset-env=LD_PRELOAD
 modules:
-  - name: paths
-    buildsystem: simple
-    build-commands:
-     - mkdir /app/bin
-
   - name: libfuse
     buildsystem: meson
     config-opts:
@@ -65,10 +61,10 @@ modules:
           project-id: 861
           url-template: https://github.com/libfuse/libfuse/releases/download/fuse-$version/fuse-$version.tar.xz
           versions: {<: '4.0'}
-
   - name: host-command-wrapper
     buildsystem: simple
     build-commands:
+      - install fusermount-wrapper.sh /app/bin/fusermount
       - install fusermount-wrapper.sh /app/bin/fusermount3
       - install umount-wrapper.sh /app/bin/umount
     sources:
@@ -76,11 +72,9 @@ modules:
         path: fusermount-wrapper.sh
       - type: file
         path: umount-wrapper.sh
-
   - python3-pkgconfig.json
   - python3-pyfuse3.json
   - python3-borgbackup.json
-
   - name: pika-backup
     buildsystem: meson
     config-opts:
@@ -88,13 +82,10 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 27a33d0c51731b43509743eec8c27d50447bddbe
+        commit: 1a884ee377ccaf4c420bdbb8234fb6919b8a0e46
         x-checker-data:
           type: git
-          # stable
           tag-pattern: ^v([\d.]+)$
-          # beta
-          #tag-pattern: ^v([\d]+.*)
       # generated via flatpak-builder-tools
       - generated-sources.json
       # copy generated cargo config

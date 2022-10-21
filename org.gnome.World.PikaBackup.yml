@@ -33,9 +33,11 @@ finish-args:
   - --filesystem=xdg-run/gvfsd
   # UPower (OnBattery)
   - --system-talk-name=org.freedesktop.UPower
-  # fusermount
+  # fusermount for mounting repositories
   - --device=all
   - --talk-name=org.freedesktop.Flatpak.*
+  # Location into which to mount repositories
+  - --filesystem=xdg-run/pika-backup
   # open folder in filebrowser, work around buggy OpenURI portal
   # https://gitlab.gnome.org/World/pika-backup/-/issues/19
   - --talk-name=org.freedesktop.FileManager1
@@ -82,7 +84,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 1a884ee377ccaf4c420bdbb8234fb6919b8a0e46
+        commit: 4ac0c932a16493ebfe29a95ece1dd77fde6e02e0
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

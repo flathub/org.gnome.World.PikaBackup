@@ -84,7 +84,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 4ac0c932a16493ebfe29a95ece1dd77fde6e02e0
+        commit: 57221cf6d3744297b9b2b1a67658e036b94b7297
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

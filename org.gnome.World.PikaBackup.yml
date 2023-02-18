@@ -37,7 +37,7 @@ finish-args:
   - --device=all
   - --talk-name=org.freedesktop.Flatpak.*
   # Location into which to mount repositories
-  - --filesystem=xdg-run/pika-backup
+  - --filesystem=xdg-run/pika-backup:create
   # open folder in filebrowser, work around buggy OpenURI portal
   # https://gitlab.gnome.org/World/pika-backup/-/issues/19
   - --talk-name=org.freedesktop.FileManager1
@@ -84,7 +84,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 57221cf6d3744297b9b2b1a67658e036b94b7297
+        commit: e8220017eb4064f2935d5a0eab882689b12c15a3
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

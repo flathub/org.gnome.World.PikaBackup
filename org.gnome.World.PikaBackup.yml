@@ -1,47 +1,50 @@
 app-id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
-
 finish-args:
-  - --device=dri
+  # Read files for to backup
+  # Host has to be writable because configs become unwriteable otherwise
   - --filesystem=host
+  - --filesystem=/var:ro
   # flatpak puts a tmpfs here to hide other apps
   # it contains configs of all flatpak apps
-  - --filesystem=~/.var/app/
+  - --filesystem=~/.var/app
   # flatpak puts a tmpfs here to hide all apps
   # it contains the apps and overrides for app priviledges
   - --filesystem=xdg-data/flatpak:ro
-  # sftp mounts etc.
-  - --share=network
+  # Wayland
   - --socket=wayland
   # X11
   - --share=ipc
   - --socket=fallback-x11
+  # SSH backups etc.
+  - --share=network
   # SSH-keys etc
   - --socket=ssh-auth
   # GVfs (gio::Device etc)
-  - --talk-name=org.gtk.vfs
   - --talk-name=org.gtk.vfs.*
   - --filesystem=xdg-run/gvfs
   - --filesystem=xdg-run/gvfsd
   # UPower (OnBattery)
   - --system-talk-name=org.freedesktop.UPower
-  # fusermount
+  # fusermount for mounting repositories
   - --device=all
   - --talk-name=org.freedesktop.Flatpak.*
+  # Location into which to mount repositories
+  - --filesystem=xdg-run/pika-backup:create
   # open folder in filebrowser, work around buggy OpenURI portal
   # https://gitlab.gnome.org/World/pika-backup/-/issues/19
   - --talk-name=org.freedesktop.FileManager1
   # see https://github.com/flatpak/flatpak/issues/4280
   - --unset-env=LD_PRELOAD
 modules:
-  - name: fusermout
+  - name: libfuse
     buildsystem: meson
     config-opts:
       - -Dexamples=false
@@ -49,19 +52,21 @@ modules:
       - -Dtests=false
       # don't install rules on the host
       - -Dudevrulesdir=/tmp/
+      # don't install init script
+      - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.11.0/fuse-3.11.0.tar.xz
-        sha256: 8982c4c521daf3974dda8a5d55d575c988da13a571970f00aea149eb54fdf14c
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.12.0/fuse-3.12.0.tar.xz
+        sha256: 33b8a92d6f7a88e6a889f0009206933482f48f3eb85d88cf09ef551313ac7373
         x-checker-data:
           type: anitya
           project-id: 861
           url-template: https://github.com/libfuse/libfuse/releases/download/fuse-$version/fuse-$version.tar.xz
           versions: {<: '4.0'}
-
   - name: host-command-wrapper
     buildsystem: simple
     build-commands:
+      - install fusermount-wrapper.sh /app/bin/fusermount
       - install fusermount-wrapper.sh /app/bin/fusermount3
       - install umount-wrapper.sh /app/bin/umount
     sources:
@@ -69,11 +74,9 @@ modules:
         path: fusermount-wrapper.sh
       - type: file
         path: umount-wrapper.sh
-
   - python3-pkgconfig.json
   - python3-pyfuse3.json
   - python3-borgbackup.json
-
   - name: pika-backup
     buildsystem: meson
     config-opts:
@@ -81,14 +84,10 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: a301567dc62fe9f4577233d55006ffda0bd9cd10
-        tag: v0.4.2
+        commit: e8220017eb4064f2935d5a0eab882689b12c15a3
         x-checker-data:
           type: git
-          # stable
           tag-pattern: ^v([\d.]+)$
-          # beta
-          #tag-pattern: ^v([\d]+.*)
       # generated via flatpak-builder-tools
       - generated-sources.json
       # copy generated cargo config

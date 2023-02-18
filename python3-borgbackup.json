@@ -2,25 +2,13 @@
     "name": "python3-borgbackup",
     "buildsystem": "simple",
     "build-commands": [
-        "tar -czvf borgbackup-1.2.1.tar.gz borgbackup-1.2.1",
         "pip3 install --use-deprecated=legacy-resolver --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"borgbackup\" --no-build-isolation"
     ],
     "sources": [
         {
-            "type": "archive",
-            "url": "https://files.pythonhosted.org/packages/e5/7e/3098f7ba4e5b6caec1657cd44e3c5d309fad83ba7bb6f6b8433315a5adbc/borgbackup-1.2.1.tar.gz",
-            "sha256": "9f9ce2d1923cb33a147ee6d08177d860974567721b1142fca67914a02e64c633",
-            "dest": "borgbackup-1.2.1"
-        },
-        {
-            "type": "patch",
-            "path": "4e4bfd27d0cf5e042bc22a80076b6fa9b0e71d6d.patch",
-            "options": ["--directory", "borgbackup-1.2.1"]
-        },
-        {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/05/8e/8de486cbd03baba4deef4142bd643a3e7bbe954a784dc1bb17142572d127/packaging-21.3-py3-none-any.whl",
-            "sha256": "ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"
+            "url": "https://files.pythonhosted.org/packages/e6/a5/69a9ddce8ae769e1bf4d1f1e93459238f473bad770d4dddba108db91971c/borgbackup-1.2.3.tar.gz",
+            "sha256": "e32418f8633c96fa9681352a56eb63b98e294203472c114a5242709d36966785"
         },
         {
             "type": "file",
@@ -29,8 +17,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl",
-            "sha256": "5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"
+            "url": "https://files.pythonhosted.org/packages/ed/35/a31aed2993e398f6b09a790a181a7927eb14610ee8bbf02dc14d31677f1c/packaging-23.0-py3-none-any.whl",
+            "sha256": "714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2"
         }
     ]
 }

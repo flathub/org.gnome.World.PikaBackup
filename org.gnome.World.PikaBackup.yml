@@ -7,6 +7,7 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
+  no-debuginfo: true
 finish-args:
   # Read files for to backup
   # Host has to be writable because configs become unwriteable otherwise
@@ -84,7 +85,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 833225ca59765afcf4f607bd613435404d0fb037
+        commit: 0fd729dca84490625ea58cde8f285a537a3837f4
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

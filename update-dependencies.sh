@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 PROJECT_DIR="$1"
 APP_ID="org.gnome.World.PikaBackup"

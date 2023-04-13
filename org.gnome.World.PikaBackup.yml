@@ -1,7 +1,7 @@
 app-id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: '44'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -56,8 +56,8 @@ modules:
       - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.14.0/fuse-3.14.0.tar.xz
-        sha256: 96115b2a8ff34bd1e0c7b00c5dfd8297571d7e165042b94498c9a26356a9a70a
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.12.0/fuse-3.12.0.tar.xz
+        sha256: 33b8a92d6f7a88e6a889f0009206933482f48f3eb85d88cf09ef551313ac7373
         x-checker-data:
           type: anitya
           project-id: 861
@@ -84,7 +84,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 6a670367b6a9e29904f5efaf14c6593d33fe9f74
+        commit: 6d0cb5e6c772a78f8b8bef388e58fbe723ee6184
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

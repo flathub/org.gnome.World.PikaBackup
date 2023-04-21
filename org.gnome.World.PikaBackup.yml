@@ -58,8 +58,8 @@ modules:
       - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.12.0/fuse-3.12.0.tar.xz
-        sha256: 33b8a92d6f7a88e6a889f0009206933482f48f3eb85d88cf09ef551313ac7373
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.14.1/fuse-3.14.1.tar.xz
+        sha256: 126919d72b46b3e0eb58a9c6933a2a50c36f2ea69f61fe9e78bdba9f463ffa20
         x-checker-data:
           type: anitya
           project-id: 861
@@ -91,6 +91,7 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
       # generated via flatpak-builder-tools
+        tag: v0.6.1
       - generated-sources.json
       # copy generated cargo config
       - type: shell

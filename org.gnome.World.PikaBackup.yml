@@ -43,6 +43,8 @@ finish-args:
   - --talk-name=org.freedesktop.FileManager1
   # see https://github.com/flatpak/flatpak/issues/4280
   - --unset-env=LD_PRELOAD
+  # see https://gitlab.gnome.org/World/pika-backup/-/issues/342
+  - --unset-env=GTK_THEME
 modules:
   - name: libfuse
     buildsystem: meson
@@ -84,7 +86,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 6d0cb5e6c772a78f8b8bef388e58fbe723ee6184
+        commit: 932e918d4d068f4e88e4c36b0fe449a92b4bdfd7
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

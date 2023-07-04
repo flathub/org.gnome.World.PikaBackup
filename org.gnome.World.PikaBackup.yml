@@ -91,6 +91,7 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
       # generated via flatpak-builder-tools
+        tag: v0.6.1
       - generated-sources.json
       # copy generated cargo config
       - type: shell

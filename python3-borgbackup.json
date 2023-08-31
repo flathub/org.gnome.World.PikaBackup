@@ -2,13 +2,13 @@
     "name": "python3-borgbackup",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"borgbackup\" --no-build-isolation --use-deprecated=legacy-resolver"
+        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"borgbackup\" --no-build-isolation"
     ],
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6e/9e/e7a116401ef0c6c2766e4e49e5a3aafaa725ba0ea827305f016339c6c496/borgbackup-1.2.4.tar.gz",
-            "sha256": "a4bd54e9469e81b7a30a6711423115abc818d9cd844ecb1ca0e6104bc5374da8"
+            "url": "https://files.pythonhosted.org/packages/92/b6/dfc0489b6baf5ef8d33c7aa15cf628962b4e09608b282092e39a9f75a28e/borgbackup-1.2.5.tar.gz",
+            "sha256": "72580779459ba72ea7e7d2e2a2ebd4f377c403236dd0ea148606036e4b631876"
         },
         {
             "type": "file",

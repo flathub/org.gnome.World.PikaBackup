@@ -58,8 +58,8 @@ modules:
       - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.12.0/fuse-3.12.0.tar.xz
-        sha256: 33b8a92d6f7a88e6a889f0009206933482f48f3eb85d88cf09ef551313ac7373
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.16.1/fuse-3.16.1.tar.gz
+        sha256: 75a7140ce2d4589eda2784d2279be9d2b273a9b6b0f79ecb871dc4dded046fb5
         x-checker-data:
           type: anitya
           project-id: 861

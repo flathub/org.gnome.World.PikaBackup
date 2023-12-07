@@ -1,12 +1,12 @@
-app-id: org.gnome.World.PikaBackup
+id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '44'
+runtime-version: '45'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin
+  append-path: /usr/lib/sdk/rust-stable/bin:/app/bin
 finish-args:
   # Read files for to backup
   # Host has to be writable because configs become unwriteable otherwise
@@ -38,9 +38,8 @@ finish-args:
   - --talk-name=org.freedesktop.Flatpak.*
   # Location into which to mount repositories
   - --filesystem=xdg-run/pika-backup:create
-  # open folder in filebrowser, work around buggy OpenURI portal
-  # https://gitlab.gnome.org/World/pika-backup/-/issues/19
-  - --talk-name=org.freedesktop.FileManager1
+  # Show GNOME shell dialogs for unmount operations instead of very old GTK internal ones
+  - --talk-name=org.gtk.MountOperationHandler
   # see https://github.com/flatpak/flatpak/issues/4280
   - --unset-env=LD_PRELOAD
   # see https://gitlab.gnome.org/World/pika-backup/-/issues/342
@@ -76,6 +75,8 @@ modules:
         path: fusermount-wrapper.sh
       - type: file
         path: umount-wrapper.sh
+  - python3-tomli.json
+  - python3-setuptools-scm.json
   - python3-pkgconfig.json
   - python3-pyfuse3.json
   - python3-borgbackup.json
@@ -86,7 +87,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 932e918d4d068f4e88e4c36b0fe449a92b4bdfd7
+        commit: d334a9da19859d0eb44882e009c0a8a978361ab1
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

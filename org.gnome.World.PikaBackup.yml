@@ -1,12 +1,12 @@
-app-id: org.gnome.World.PikaBackup
+id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '44'
+runtime-version: '45'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin
+  append-path: /usr/lib/sdk/rust-stable/bin:/app/bin
 finish-args:
   # Read files for to backup
   # Host has to be writable because configs become unwriteable otherwise
@@ -38,9 +38,8 @@ finish-args:
   - --talk-name=org.freedesktop.Flatpak.*
   # Location into which to mount repositories
   - --filesystem=xdg-run/pika-backup:create
-  # open folder in filebrowser, work around buggy OpenURI portal
-  # https://gitlab.gnome.org/World/pika-backup/-/issues/19
-  - --talk-name=org.freedesktop.FileManager1
+  # Show GNOME shell dialogs for unmount operations instead of very old GTK internal ones
+  - --talk-name=org.gtk.MountOperationHandler
   # see https://github.com/flatpak/flatpak/issues/4280
   - --unset-env=LD_PRELOAD
   # see https://gitlab.gnome.org/World/pika-backup/-/issues/342
@@ -58,8 +57,8 @@ modules:
       - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.12.0/fuse-3.12.0.tar.xz
-        sha256: 33b8a92d6f7a88e6a889f0009206933482f48f3eb85d88cf09ef551313ac7373
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.16.2/fuse-3.16.2.tar.gz
+        sha256: f797055d9296b275e981f5f62d4e32e089614fc253d1ef2985851025b8a0ce87
         x-checker-data:
           type: anitya
           project-id: 861
@@ -76,6 +75,8 @@ modules:
         path: fusermount-wrapper.sh
       - type: file
         path: umount-wrapper.sh
+  - python3-tomli.json
+  - python3-setuptools-scm.json
   - python3-pkgconfig.json
   - python3-pyfuse3.json
   - python3-borgbackup.json
@@ -86,7 +87,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: d1847f90bbcb71bc1118a3eb3560a75598fd596c
+        commit: 668f9b2e41a95bd71c3d5d45f90cf769ebcce80b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

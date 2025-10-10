@@ -18,4 +18,4 @@ yq ".modules[-1].sources[0].commit = \"${commit}\"" "${PROJECT_DIR}/build-aux/${
 ./flatpak-builder-tools/pip/flatpak-pip-generator pkgconfig
 ./flatpak-builder-tools/pip/flatpak-pip-generator pyfuse3
 ./flatpak-builder-tools/pip/flatpak-pip-generator borgbackup
-
+./flatpak-builder-tools/pip/flatpak-pip-generator flit

@@ -70,8 +70,8 @@ modules:
       - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.17.2/fuse-3.17.2.tar.gz
-        sha256: 3d932431ad94e86179e5265cddde1d67aa3bb2fb09a5bd35c641f86f2b5ed06f
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.18.1/fuse-3.18.1.tar.gz
+        sha256: dd395c88f29c7540bbdd0b830260ab8092ccb241bb6e66f603643f715fb9322c
         x-checker-data:
           type: anitya
           project-id: 861
@@ -101,11 +101,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: 4f5589f2124091d474cca908b5988aca4c96677f
+        commit: c802cb1382a14c0da2e9994173feb260116d39a6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
       # generated via flatpak-builder-tools
+        tag: v0.7.5
       - generated-sources.json
       # copy generated cargo config
       - type: shell

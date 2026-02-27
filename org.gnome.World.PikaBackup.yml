@@ -1,7 +1,7 @@
 id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '49'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -45,6 +45,19 @@ finish-args:
   # see https://gitlab.gnome.org/World/pika-backup/-/issues/342
   - --unset-env=GTK_THEME
 modules:
+  - name: libxxhash
+    buildsystem: cmake
+    subdir: cmake_unofficial
+    sources:
+      - type: archive
+        url: https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.3.tar.gz
+        sha256: aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+      - -DCMAKE_BUILD_TYPE=Release
   - name: libfuse
     buildsystem: meson
     config-opts:
@@ -57,8 +70,8 @@ modules:
       - -Dinitscriptdir=
     sources:
       - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.16.2/fuse-3.16.2.tar.gz
-        sha256: f797055d9296b275e981f5f62d4e32e089614fc253d1ef2985851025b8a0ce87
+        url: https://github.com/libfuse/libfuse/releases/download/fuse-3.17.2/fuse-3.17.2.tar.gz
+        sha256: 3d932431ad94e86179e5265cddde1d67aa3bb2fb09a5bd35c641f86f2b5ed06f
         x-checker-data:
           type: anitya
           project-id: 861
@@ -75,8 +88,9 @@ modules:
         path: fusermount-wrapper.sh
       - type: file
         path: umount-wrapper.sh
-  - python3-tomli.json
   - python3-setuptools-scm.json
+  - python3-flit.json
+  - python3-tomli.json
   - python3-pkgconfig.json
   - python3-pyfuse3.json
   - python3-borgbackup.json
@@ -87,7 +101,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: bb4e23044b502e2e536f4d9ab198b2985bef557c
+        commit: e580e48f21666141a1023a164c349587de25a8b6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

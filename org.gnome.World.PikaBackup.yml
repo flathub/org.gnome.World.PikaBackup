@@ -1,7 +1,7 @@
 id: org.gnome.World.PikaBackup
 command: pika-backup
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -101,7 +101,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/pika-backup.git
-        commit: e580e48f21666141a1023a164c349587de25a8b6
+        commit: 8051ef68ef3afa96dd4858987fba06d5bb5de1cf
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$

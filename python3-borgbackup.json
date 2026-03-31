@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/7a/5a/090ad33133d34d71aba70e40eff030aaa3a07776fa38cc8bd85eb856456b/borgbackup-1.4.3.tar.gz",
-            "sha256": "79bbfa745d1901d685973584bd2d16a350686ddd176f6a2244490fb01996441f"
+            "url": "https://files.pythonhosted.org/packages/eb/38/7fc8c8c7d9dba455f0e29f2ab5b77109313f4e58fe5014d0e1b7855de3cd/borgbackup-1.4.4.tar.gz",
+            "sha256": "2716bc124a24908efcac9436df31b716d1f0bbd828ad39b18f73bfdd772a651a"
         },
         {
             "type": "file",

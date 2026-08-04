@@ -7,18 +7,18 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl",
-            "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e"
+            "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+            "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/fa/a8/3e86057d0d6274e57b9b0b40cb14b90832552c33a8f855b3675843686284/setuptools_scm-10.1.1-py3-none-any.whl",
-            "sha256": "4660e6a3b1764ff4b11188de93c26f02396ef294784a75e031e0a5f60c2379fe"
+            "url": "https://files.pythonhosted.org/packages/c3/b4/02ac1d9833b882c87b3a4e82703e70eac4ab33d0d15fb123e60bb01f3bc1/setuptools_scm-10.2.1-py3-none-any.whl",
+            "sha256": "b7c82f4102d389ee57dc66ccdb4f9b4bca3c40ba83b43f1f63d68ccd72db2580"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/36/51/b9b812b8d09584d8cdfc4c19328e5a86e72f6da310d529cc009d194ac6a7/vcs_versioning-2.0.1-py3-none-any.whl",
-            "sha256": "fa1a7e49745fb968af54d1422e1f6bcde2563046f2c283a1a8d720184ece6ea1"
+            "url": "https://files.pythonhosted.org/packages/95/2e/83be70d0379bbe17034e5d5960fae2a23cc136d466786607d2615ac2612b/vcs_versioning-2.2.3-py3-none-any.whl",
+            "sha256": "4f7873af76f5cc24e701608354f376f5eb70b317d663787ace57a7edd7a27506"
         }
     ]
 }
